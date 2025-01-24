@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Allow access to the root of external storage -->
+    <external-path
+        name="external"
+        path="." />
+
+    <!-- Specifically allow access to the SMPOS folder -->
+    <external-path
+        name="smpo_files"
+        path="SMPOS/" />
+</paths>

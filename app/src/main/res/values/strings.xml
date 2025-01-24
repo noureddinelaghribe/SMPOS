@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">SMPOS</string>
+    <string name="sell">بيع</string>
+    <string name="buy">شراء</string>
+    <string name="suppliers">الموردين</string>
+    <string name="customers">العملاء</string>
+    <string name="stock">المخزون</string>
+    <string name="history">التقارير</string>
+    <string name="debtors">المدينين</string>
+    <string name="creditors">الدائنين</string>
+    <string name="total_checkins"> المشتريات</string>
+    <string name="total_checkouts"> المبيعات</string>
+    <string name="total_profits_customers">المبيعات المدفوعة</string>
+    <string name="total_profits_suppliers">المشتريات المدفوعة</string>
+    <string name="total_debts_customers">ديون المبيعات</string>
+    <string name="total_debts_suppliers">ديون المشتريات</string>
+    <string name="total_items"> المنتجات</string>
+    <string name="total_customers"> العملاء</string>
+    <string name="total_suppliers"> الموردين</string>
+    <string name="tital_report">"جميع النشاطات الخاصة بك هنا : "</string>
+    <string name="text_report">"المبيعات ,المشتريات و الموردين ,العملاء "</string>
+    <string name="sales">المبيعات</string>
+    <string name="buys">المشتريات</string>
+    <string name="all_activities">عرض جميع النشاطات</string>
+    <string name="from">من</string>
+    <string name="to">الى</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

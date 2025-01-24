@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "24649439523",
+    "project_id": "smpos-544df",
+    "storage_bucket": "smpos-544df.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:24649439523:android:9979a27405bcf18a155496",
+        "android_client_info": {
+          "package_name": "com.noureddine.stockmanagment"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOI68prGppk_bEXMLtQ4PFxCA-66ao2Yo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

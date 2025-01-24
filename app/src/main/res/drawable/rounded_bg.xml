@@ -1,0 +1,12 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- اللون الأساسي للخلفية -->
+    <solid android:color="#E53935" />
+
+    <!-- تحديد الحواف المستديرة -->
+    <corners android:radius="360dp" />
+
+    <!-- حدود (اختياري) -->
+    <stroke
+        android:width="1dp"
+        android:color="#000000" />
+</shape>

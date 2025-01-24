@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".ActiveLicenseActivity">
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="الرجاء ادخال رمز تفعيل البرنامج"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+        <EditText
+            android:id="@+id/editTextText2"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/rectangle_3"
+            android:ems="10"
+            android:focusable="true"
+            android:gravity="center"
+            android:hint="0"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:maxLength="1" />
+
+        <EditText
+            android:id="@+id/editTextText3"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/rectangle_3"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="0"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:maxLength="1" />
+
+        <EditText
+            android:id="@+id/editTextText4"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/rectangle_3"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="0"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:maxLength="1" />
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="-"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/editTextText5"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/rectangle_3"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="0"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:maxLength="1" />
+
+        <EditText
+            android:id="@+id/editTextText6"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/rectangle_3"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="0"
+            android:imeOptions="actionNext"
+            android:inputType="text"
+            android:maxLength="1" />
+
+        <EditText
+            android:id="@+id/editTextText7"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/rectangle_3"
+            android:ems="10"
+            android:gravity="center"
+            android:hint="0"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:maxLength="1" />
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="14dp"
+        android:layout_margin="50dp">
+
+        <Button
+            android:id="@+id/button_verify"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@color/red"
+            android:text="تفعيل"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
