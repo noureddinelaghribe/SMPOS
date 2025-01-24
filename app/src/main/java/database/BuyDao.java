@@ -20,8 +20,6 @@ public interface BuyDao {
     @Query("SELECT * FROM "+ Utel.TABLE_BUY +" WHERE id=:id")
     Buy getBayeingById(int id);
 
-//    @Query("SELECT COUNT(*) FROM "+Utel.TABLE_BUY)
-//    int getCountBuyers();
 
     @Query("SELECT * FROM "+Utel.TABLE_BUY+ " WHERE typePayment = 'cash' AND dateInsert <= :timeEnd AND dateInsert >= :timeStare")
     LiveData<List<Buy>> getCountBuyersCash(long timeStare,long timeEnd);

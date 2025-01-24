@@ -2,6 +2,7 @@ package com.noureddine.stockmanagment;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -40,22 +41,12 @@ public class InfoActivity extends AppCompatActivity {
 
         whatsapp.setOnClickListener(v -> {
 
-            try {
-                String url = "https://wa.link/9gdb0o"; // The URL you want to share
-                Intent sendIntent = new Intent(Intent.ACTION_SEND);
-                sendIntent.setType("text/plain");
-                sendIntent.putExtra(Intent.EXTRA_TEXT, url);
+            // The WhatsApp link to open
+            String url = "https://wa.link/9gdb0o";
 
-                // Specify WhatsApp package to directly open WhatsApp
-                sendIntent.setPackage("com.whatsapp");
-
-                // Start the intent
-                startActivity(sendIntent);
-
-            } catch (android.content.ActivityNotFoundException ex) {
-                // Handle the case where WhatsApp is not installed
-                Toast.makeText(this, "تطبيق الواتساب غير مثبت لديك", Toast.LENGTH_SHORT).show();
-            }
+            // Open the link
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+            startActivity(intent);
 
         });
 

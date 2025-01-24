@@ -29,7 +29,6 @@ public interface ProductDao {
     @Query("UPDATE Product SET quantity = :quantity WHERE id = :id")
     void updateQuantity(int id, int quantity);
 
-    //    @Query("SELECT * FROM " + Utel.TABLE_PRODUCT + " WHERE idp LIKE '%' || :text || '%' OR name LIKE '%' || :text || '%'")
     @Query("SELECT * FROM " + Utel.TABLE_PRODUCT + " WHERE idp = :text OR name LIKE '%' || :text || '%' AND isDeleted = 0")
     LiveData<List<Product>> searchProduct(String text);
 
@@ -45,7 +44,6 @@ public interface ProductDao {
     @Query("SELECT COUNT(*) FROM "+Utel.TABLE_PRODUCT+ " WHERE isDeleted = 0 AND dateInsert <= :timeEnd AND dateInsert >= :timeStare")
     LiveData<Integer> getCountProducts(long timeStare,long timeEnd);
 
-    //@Query("SELECT COUNT(*) FROM "+Utel.TABLE_PRODUCT+ " WHERE isDeleted = 0 AND expiryDate <= :timeEnd AND expiryDate >= :timeStare OR quantity <= 'limit'")
     @Query("SELECT COUNT(*) FROM " + Utel.TABLE_PRODUCT + " WHERE isDeleted = 0 AND (expiryDate <= :timeEnd AND expiryDate >= :timeStare OR quantity <= `limit`) AND quantity > 0")
     LiveData<Integer> getCountProductsStockexpiryDate(long timeStare,long timeEnd);
 

@@ -16,12 +16,12 @@ public class Customer {
     String Note;
     long dateInsert;
     private boolean isDeleted;
-    double debet;
+    int debet;
 
 
     public Customer() {}
 
-    public Customer(int id, String name, String address, String phoneNumber, String note,long dateInsert,double debet) {
+    public Customer(int id, String name, String address, String phoneNumber, String note,long dateInsert,int debet) {
         this.id = id;
         this.name = name;
         this.Address = address;
@@ -31,7 +31,7 @@ public class Customer {
         this.debet = debet;
     }
 
-    public Customer(String name, String address, String phoneNumber, String note,long dateInsert,boolean isDeleted,double debet) {
+    public Customer(String name, String address, String phoneNumber, String note,long dateInsert,boolean isDeleted,int debet) {
         this.name = name;
         this.Address = address;
         this.phoneNumber = phoneNumber;
@@ -97,11 +97,11 @@ public class Customer {
         isDeleted = deleted;
     }
 
-    public double getDebet() {
+    public int getDebet() {
         return debet;
     }
 
-    public void setDebet(double debet) {
+    public void setDebet(int debet) {
         this.debet = debet;
     }
 

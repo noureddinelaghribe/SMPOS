@@ -61,7 +61,6 @@ dependencies {
     implementation("com.journeyapps:zxing-android-embedded:4.3.0")
     implementation("com.google.guava:guava:32.1.2-jre")
 
-    //implementation("com.itextpdf:itext7-core:7.2.3")
     implementation("com.itextpdf:itextpdf:5.5.13.3")
     implementation("com.ibm.icu:icu4j:73.2")
     implementation("com.google.android.gms:play-services-nearby:18.0.0")

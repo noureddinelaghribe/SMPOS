@@ -202,9 +202,6 @@ public class SMViewModel extends AndroidViewModel {
         return reposetry.getAllBuyers();
     }
 
-//    public int getCountBuyers(){
-//        return reposetry.getCountBuyers();
-//    }
 
     public LiveData<List<Buy>> getCountBuyersCash(long timeStare,long timeEnd){
         return reposetry.getCountBuyersCash( timeStare, timeEnd);

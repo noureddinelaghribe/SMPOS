@@ -8,6 +8,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -21,7 +22,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.noureddine.stockmanagment.R;
 
 import java.util.List;
 
@@ -39,7 +39,7 @@ public class CustomerSuppliersActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;
     EditText editTextSearch;
-
+    TextView textView;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -56,6 +56,7 @@ public class CustomerSuppliersActivity extends AppCompatActivity {
         fab = findViewById(R.id.fab);
         recyclerView = findViewById(R.id.RecyclerView);
         editTextSearch = findViewById(R.id.editText_search);
+        textView = findViewById(R.id.textView21);
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -68,34 +69,42 @@ public class CustomerSuppliersActivity extends AppCompatActivity {
             smViewModel.getAllCustomers().observe(CustomerSuppliersActivity.this, new Observer<List<Customer>>() {
                 @Override
                 public void onChanged(List<Customer> customers) {
-                    adapter = new AdapterCustomerSupplier(customers, getBaseContext(), new OnCSClickListener() {
-                        @Override
-                        public void onItemCklick(Supplier supplier,String s) {}
-                        @Override
-                        public void onItemCklick(Customer customer,String s) {
-                            if (s.equals("حذف")){
-                                //smViewModel.deleteCustomerById(customer.getId());
-                                customer.setDeleted(true);
-                                smViewModel.updateCustomer(customer);
-                                //   int custmerId, int supplierId, int productId, int buyingId, int sellingId, String type, long timestamp
-                                smViewModel.inserttransaction(new Transactions(customer.getId(),
-                                        0,0,0,0,null,"deleteCustomer",System.currentTimeMillis()));
-                                Toast.makeText(CustomerSuppliersActivity.this, "تم حذف العميل", Toast.LENGTH_SHORT).show();
-                            }else{
-//                                editSupplierCustomer(new Supplier(),customer,true);
 
-                                editSupplierCustomer(
-                                        CustomerSuppliersActivity.this,
-                                        extras.getString("type"),
-                                        new Supplier(),
-                                        customer,
-                                        true
-                                );
+                    if (customers.isEmpty()){
+                        recyclerView.setVisibility(View.GONE);
+                        textView.setVisibility(View.VISIBLE);
+                        textView.setText("لا يوجد عملاء");
+                    }else{
+                        recyclerView.setVisibility(View.VISIBLE);
+                        textView.setVisibility(View.GONE);
+                        adapter = new AdapterCustomerSupplier(customers, getBaseContext(), new OnCSClickListener() {
+                            @Override
+                            public void onItemCklick(Supplier supplier,String s) {}
+                            @Override
+                            public void onItemCklick(Customer customer,String s) {
+                                if (s.equals("حذف")){
+                                    customer.setDeleted(true);
+                                    smViewModel.updateCustomer(customer);
+                                    //   int custmerId, int supplierId, int productId, int buyingId, int sellingId, String type, long timestamp
+                                    smViewModel.inserttransaction(new Transactions(customer.getId(),
+                                            0,0,0,0,null,"deleteCustomer",System.currentTimeMillis()));
+                                    Toast.makeText(CustomerSuppliersActivity.this, "تم حذف العميل", Toast.LENGTH_SHORT).show();
+                                }else{
 
+                                    editSupplierCustomer(
+                                            CustomerSuppliersActivity.this,
+                                            extras.getString("type"),
+                                            new Supplier(),
+                                            customer,
+                                            true
+                                    );
+
+                                }
                             }
-                        }
-                    });
-                    recyclerView.setAdapter(adapter);
+                        });
+                        recyclerView.setAdapter(adapter);
+                    }
+
                 }
             });
 
@@ -104,35 +113,44 @@ public class CustomerSuppliersActivity extends AppCompatActivity {
             smViewModel.getAllSuppliers().observe(CustomerSuppliersActivity.this, new Observer<List<Supplier>>() {
                 @Override
                 public void onChanged(List<Supplier> suppliers) {
-                    adapter = new AdapterCustomerSupplier(suppliers, getBaseContext(), true, new OnCSClickListener() {
-                        @Override
-                        public void onItemCklick(Supplier supplier,String s) {
-                            if (s.equals("حذف")){
-                                //smViewModel.deleteSupplierById(supplier.getId());
-                                supplier.setDeleted(true);
-                                smViewModel.updateSupplier(supplier);
-                                //   int custmerId, int supplierId, int productId, int buyingId, int sellingId, String type, long timestamp
-                                smViewModel.inserttransaction(new Transactions(0,supplier.getId(),
-                                        0,0,0,null,"deleteSupplier",System.currentTimeMillis()));
-                                Toast.makeText(CustomerSuppliersActivity.this, "تم حذف المورد", Toast.LENGTH_SHORT).show();
-                            }else{
-//                                editSupplierCustomer(supplier,new Customer(),true);
 
-                                editSupplierCustomer(
-                                        CustomerSuppliersActivity.this,
-                                        extras.getString("type"),
-                                        supplier,
-                                        new Customer(),
-                                        true
-                                );
+                    if (suppliers.isEmpty()){
+                        recyclerView.setVisibility(View.GONE);
+                        textView.setVisibility(View.VISIBLE);
+                        textView.setText("لا يوجد موردين");
+                    }else{
+                        recyclerView.setVisibility(View.VISIBLE);
+                        textView.setVisibility(View.GONE);
+                        adapter = new AdapterCustomerSupplier(suppliers, getBaseContext(), true, new OnCSClickListener() {
+                            @Override
+                            public void onItemCklick(Supplier supplier,String s) {
+                                if (s.equals("حذف")){
+                                    //smViewModel.deleteSupplierById(supplier.getId());
+                                    supplier.setDeleted(true);
+                                    smViewModel.updateSupplier(supplier);
+                                    //   int custmerId, int supplierId, int productId, int buyingId, int sellingId, String type, long timestamp
+                                    smViewModel.inserttransaction(new Transactions(0,supplier.getId(),
+                                            0,0,0,null,"deleteSupplier",System.currentTimeMillis()));
+                                    Toast.makeText(CustomerSuppliersActivity.this, "تم حذف المورد", Toast.LENGTH_SHORT).show();
+                                }else{
+
+                                    editSupplierCustomer(
+                                            CustomerSuppliersActivity.this,
+                                            extras.getString("type"),
+                                            supplier,
+                                            new Customer(),
+                                            true
+                                    );
+
+                                }
 
                             }
+                            @Override
+                            public void onItemCklick(Customer customer,String s) {}
+                        });
+                        recyclerView.setAdapter(adapter);
+                    }
 
-                        }
-                        @Override
-                        public void onItemCklick(Customer customer,String s) {}
-                    });
-                    recyclerView.setAdapter(adapter);
                 }
             });
 
@@ -173,14 +191,12 @@ public class CustomerSuppliersActivity extends AppCompatActivity {
                                     @Override
                                     public void onItemCklick(Customer customer,String s) {
                                         if (s.equals("حذف")){
-                                            //smViewModel.deleteCustomerById(customer.getId());
                                             customer.setDeleted(true);
                                             smViewModel.updateCustomer(customer);
                                             //   int custmerId, int supplierId, int productId, int buyingId, int sellingId, String type, long timestamp
                                             smViewModel.inserttransaction(new Transactions(customer.getId(),0,0,0,0,null,"deleteCustomer",System.currentTimeMillis()));
                                             Toast.makeText(CustomerSuppliersActivity.this, "تم حذف العميل", Toast.LENGTH_SHORT).show();
                                         }else{
-//                                editSupplierCustomer(new Supplier(),customer,true);
 
                                             editSupplierCustomer(
                                                     CustomerSuppliersActivity.this,
@@ -246,13 +262,11 @@ public class CustomerSuppliersActivity extends AppCompatActivity {
                                     @Override
                                     public void onItemCklick(Supplier supplier,String s) {
                                         if (s.equals("حذف")){
-                                            //smViewModel.deleteSupplierById(supplier.getId());
                                             supplier.setDeleted(true);
                                             smViewModel.updateSupplier(supplier);
                                             smViewModel.inserttransaction(new Transactions(0,supplier.getId(),0,0,0,null,"deleteSupplier",System.currentTimeMillis()));
                                             Toast.makeText(CustomerSuppliersActivity.this, "تم حذف المورد", Toast.LENGTH_SHORT).show();
                                         }else{
-//                                editSupplierCustomer(supplier,new Customer(),true);
 
                                             editSupplierCustomer(
                                                     CustomerSuppliersActivity.this,
@@ -288,7 +302,6 @@ public class CustomerSuppliersActivity extends AppCompatActivity {
                                             smViewModel.inserttransaction(new Transactions(0,supplier.getId(),0,0,0,null,"deleteSupplier",System.currentTimeMillis()));
                                             Toast.makeText(CustomerSuppliersActivity.this, "تم حذف المورد", Toast.LENGTH_SHORT).show();
                                         }else{
-//                                        editSupplierCustomer(supplier,new Customer(),true);
 
                                             editSupplierCustomer(
                                                     CustomerSuppliersActivity.this,

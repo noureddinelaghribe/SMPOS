@@ -49,17 +49,9 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
         int currentPosition = holder.getAdapterPosition();
 
         Product product = productList.get(currentPosition);
-        holder.name.setText(lengthText(product.getName(),10));
+        holder.name.setText(product.getName());
         holder.quantity.setText(String.valueOf(product.getQuantity()));
         holder.price.setText(String.valueOf(product.getPriceSell()));
-
-
-//        if (product.getImagePath().length() < 5){
-//            holder.img.setImageResource(R.drawable.product);
-//        }else {
-//            holder.img.setImageURI(Uri.parse(product.getImagePath()));
-//        }
-
 
         File pathImgProduct = new File(product.getImagePath());
         if (product.getImagePath().equals("") || product.getImagePath().equals(null) || product.getImagePath().length() < 5){
@@ -71,22 +63,6 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
                 holder.img.setImageResource(R.drawable.product);
             }
         }
-
-
-//        if (!productList.get(currentPosition).getImagePath().equals("") && !productList.get(currentPosition).getImagePath().equals(null)){
-//            holder.img.setImageURI(Uri.parse(product.getImagePath()));
-//        }
-//        else {
-//            holder.img.setImageResource(R.drawable.product);
-//        }
-
-//        if (product.getImagePath() != null){
-//            File file =new File(product.getImagePath());
-//            if (file.exists()){
-//                Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
-//                holder.img.setImageBitmap(bitmap);
-//            }
-//        }
 
         holder.itemView.setOnClickListener(v -> {
             if (onItemClickListener != null) {
@@ -169,14 +145,6 @@ public class AdapterProduct extends RecyclerView.Adapter<AdapterProduct.ViewHold
             img = itemView.findViewById(R.id.imageView_product);
             more = itemView.findViewById(R.id.imageView_more);
 
-//            itemView.setOnClickListener(v -> {
-//                if (onItemClickListener != null){
-//                    int position =getAdapterPosition();
-//                    if (position != RecyclerView.NO_POSITION){
-//                        onItemClickListener.onItemCklick(position);
-//                    }
-//                }
-//            });
         }
     }
 }

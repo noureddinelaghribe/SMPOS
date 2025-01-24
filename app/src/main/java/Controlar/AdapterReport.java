@@ -28,14 +28,6 @@ public class AdapterReport extends RecyclerView.Adapter<AdapterReport.ViewHolder
 
     public AdapterReport() {}
 
-//    public AdapterReport(Context context, List<Object> transactionsList) {
-//        this.context = context;
-//        this.transactionsList = transactionsList;
-//    }
-//
-//    public AdapterReport(Context context) {
-//        this.context = context;
-//    }
 
     @SuppressLint("NotifyDataSetChanged")
     public void addReport(List<Object> transactionsList) {
@@ -56,17 +48,10 @@ public class AdapterReport extends RecyclerView.Adapter<AdapterReport.ViewHolder
 
         Object item = transactionsList.get(position);
         if (item instanceof ReportT1) {
-//            Log.d("TAG", "getItemViewType: ReportT1 "+
-//                    ((ReportT1) transactionsList.get(position)).getType()+" "+
-//                    ((ReportT1) transactionsList.get(position)).getName()+" "+
-//                    ((ReportT1) transactionsList.get(position)).getDate());
+
             return VIEW_TYPE_1;
         } else if (item instanceof ReportT2) {
-//            Log.d("TAG", "getItemViewType: ReportT2 "+
-//                    ((ReportT2) transactionsList.get(position)).getType()+" "+
-//                    ((ReportT2) transactionsList.get(position)).getName()+" "+
-//                    ((ReportT2) transactionsList.get(position)).getNamesProducts()+" "+
-//                    ((ReportT2) transactionsList.get(position)).getDate());
+
             return VIEW_TYPE_2;
         } else {
             //Log.e("AdapterReport", "Unknown type at position " + position + ": " + item.getClass().getSimpleName());

@@ -44,23 +44,6 @@ public class ImageUtils {
         }
     }
 
-    // Save image from camera/gallery
-//    public static Uri saveImage(Context context, Bitmap bitmap) {
-//        try {
-//            String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss",
-//                    Locale.getDefault()).format(new Date());
-//            String imageName = "IMG_" + timeStamp;
-//
-//            Log.d("TAG", "saveImage: "+imageName);
-//
-//
-//            return saveBitmapToUri(context, bitmap, imageName);
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return null;
-//        }
-//    }
 
     public static Bitmap uriToBitmap(Context context, Uri uri) {
         try {

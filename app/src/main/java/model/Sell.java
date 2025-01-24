@@ -1,6 +1,5 @@
 package model;
 
-import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverters;
@@ -143,10 +142,6 @@ public class Sell {
     public void setRestAmount(int restAmount) {
         this.restAmount = restAmount;
     }
-
-//    public int getcustomerID() {
-//        return customerID;
-//    }
 
     public void setcustomerID(int customerID) {
         this.customerID = customerID;

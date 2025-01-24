@@ -1,6 +1,5 @@
 package model;
 
-import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import Utles.Utel;
@@ -16,11 +15,11 @@ public class Supplier {
     String Note;
     long dateInsert;
     private boolean isDeleted;
-    double credit;
+    int credit;
 
     public Supplier() {}
 
-    public Supplier(int id, String name, String address, String phoneNumber, String note,long dateInsert,double credit) {
+    public Supplier(int id, String name, String address, String phoneNumber, String note,long dateInsert,int credit) {
         this.id = id;
         this.name = name;
         this.Address = address;
@@ -30,7 +29,7 @@ public class Supplier {
         this.credit = credit;
     }
 
-    public Supplier(String name, String address, String phoneNumber, String note,long dateInsert,boolean isDeleted ,double credit) {
+    public Supplier(String name, String address, String phoneNumber, String note,long dateInsert,boolean isDeleted ,int credit) {
         this.name = name;
         this.Address = address;
         this.phoneNumber = phoneNumber;
@@ -96,11 +95,11 @@ public class Supplier {
         isDeleted = deleted;
     }
 
-    public double getCredit() {
+    public int getCredit() {
         return credit;
     }
 
-    public void setCredit(double credit) {
+    public void setCredit(int credit) {
         this.credit = credit;
     }
 }

@@ -2,10 +2,8 @@ package com.noureddine.stockmanagment;
 
 import static com.noureddine.stockmanagment.Opiration.longToDate;
 import static com.noureddine.stockmanagment.Opiration.longToDateTime;
-import static com.google.common.io.Resources.getResource;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -25,7 +23,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.datepicker.MaterialDatePicker;
-import com.noureddine.stockmanagment.R;
 
 
 import java.util.ArrayList;
@@ -115,211 +112,12 @@ public class ReportsActivity extends AppCompatActivity {
                 }else {
                     loadReport();
                 }
-
-//                smViewModel.getAllProduct().observe(ReportsActivity.this, new Observer<List<Product>>() {
-//                    @Override
-//                    public void onChanged(List<Product> products) {
-//                        String text = "This is a sample text that will be converted to a PDF.";
-//                        String fileName = "sample.pdf";
-//                        PdfCreator.createPdf(ReportsActivity.this, products, text, fileName);
-//                    }
-//                });
-
-                //file:///android_asset/NotoNaskhArabic-Regular.ttf
-
-//                File path = new File(getExternalFilesDir(null), REPORTS_PATH);
-//
-//                if (!path.exists()) {
-//                    path.mkdir(); // Create the directory and its parent directories if they don't exist
-//                }
-//
-//                File file = new File(path, "try.pdf");
-//                createPdfWithArabicText(String.valueOf(file),getAssets());
-//                String fontPath = "file:///android_asset/NotoNaskhArabic-Regular.ttf"; // Font file name in assets folder
-//
-
-
-
-
-                //AssetManager assetManager = getAssets();
-                //createPdfWithArabicText(String.valueOf(file),assetManager);
-                //createPdf(String.valueOf(file),assetManager);
-
-//
-//                try {
-//                    // إنشاء المستند و PdfWriter
-//                    Document document = new Document();
-//                    PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(file));
-//
-//                    // تعيين اتجاه النص إلى اليمين لليسار
-//                    writer.setRunDirection(PdfWriter.RUN_DIRECTION_RTL);
-//
-//                    // فتح المستند
-//                    document.open();
-//
-//                    // تحميل الخط العربي
-//                    BaseFont arabicFont = BaseFont.createFont("assets/fonts/NotoNaskhArabic-Bold.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
-//
-//                    // إنشاء فقرة مع نص باللغة العربية
-//                    String arabicText = processBidirectionalText("مرحبًا بالعالم");
-//                    Paragraph paragraph = new Paragraph(arabicText, new com.itextpdf.text.Font(arabicFont, 14));
-//                    paragraph.setAlignment(Element.ALIGN_RIGHT);
-//
-//                    // إضافة الفقرة إلى المستند
-//                    document.add(paragraph);
-//
-//                    // إغلاق المستند
-//                    document.close();
-//
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//
-//
-
-
-
-
-//                File path = new File(getExternalFilesDir(null), REPORTS_PATH);
-//
-//                if (!path.exists()) {
-//                    path.mkdir(); // Create the directory and its parent directories if they don't exist
-//                }
-//
-//                File file = new File(path, "try.pdf");
-//                Document document = new Document();
-//
-//                try {
-//                    PdfWriter.getInstance(document, new FileOutputStream(file));
-//                    document.open();
-//
-//                    BaseFont baseFont = BaseFont.createFont("assets/fonts/NotoSansArabic-Bold.ttf", BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
-//                    Font font = new Font(baseFont, 12, Font.NORMAL);
-//
-//                    // إضافة معلومات العميل والتاريخ
-//                    Paragraph clientInfo = new Paragraph(processBidirectionalText("فاتورة مبيعات نقدا : "),  new Font(baseFont, 18, Font.BOLD));
-//                    clientInfo.setAlignment(Paragraph.ALIGN_CENTER);
-//                    document.add(clientInfo);
-//
-//                    Paragraph newLine = new Paragraph(processBidirectionalText("\n\n"), font);
-//                    newLine.setAlignment(Paragraph.ALIGN_RIGHT);
-//                    document.add(newLine);
-//
-//                    // إضافة رقم الكاشير
-//                    Paragraph nomB = new Paragraph(processBidirectionalText("رقم الفاتورة : 2415"), font);
-//                    nomB.setAlignment(Paragraph.ALIGN_RIGHT);
-//                    document.add(nomB);
-//
-//                    // إضافة رقم الكاشير
-//                    Paragraph caisseInfo = new Paragraph(processBidirectionalText("اسم العميل : نور الدين لغريب"), font);
-//                    caisseInfo.setAlignment(Paragraph.ALIGN_RIGHT);
-//                    caisseInfo.setPaddingTop(5);
-//                    document.add(caisseInfo);
-//
-//                    // إضافة رقم الكاشير
-//                    Paragraph dateInfo = new Paragraph(processBidirectionalText("التاريخ : 21/11/2025 11:30 "), font);
-//                    dateInfo.setAlignment(Paragraph.ALIGN_LEFT);
-//                    document.add(dateInfo);
-//
-//                    Paragraph newLine2 = new Paragraph(processBidirectionalText("\n"), font);
-//                    newLine2.setAlignment(Paragraph.ALIGN_RIGHT);
-//                    document.add(newLine2);
-//
-//                    // إنشاء جدول للفاتورة
-//                    PdfPTable table = new PdfPTable(5);
-//                    table.setWidthPercentage(100);
-//                    table.setWidths(new float[]{10, 10, 10, 10, 2});
-//
-//                    String[] headers = {"المجموع", "السعر", "الكمية", "المنتج","#"};
-//                    for (String header : headers) {
-//                        PdfPCell cell = new PdfPCell(new Paragraph(processBidirectionalText(header), font));
-//                        cell.setHorizontalAlignment(Element.ALIGN_CENTER);
-//                        cell.setVerticalAlignment(Element.ALIGN_CENTER);
-//                        cell.setPaddingBottom(5);
-//                        cell.setBackgroundColor(new BaseColor(224, 224, 224)); // خلفية رمادية (#e0e0e0)
-//                        table.addCell(cell);
-//                    }
-//
-//                    // إضافة بيانات الجدول
-//                    String[][] data = {
-//                            {"500", "500", "1","زيت زيتون","1"},
-//                            {"1500", "1500", "1","بيمو","2"},
-//                            {"155.00", "15.00", "11", "كاشير","3"},
-//                            {"900", "900", "1", "ماء","4"},
-//                            {"1800", "200", "9", "حليب كونديا","5"}
-//                    };
-//
-//                    for (String[] row : data) {
-//                        for (String cellData : row) {
-//                            PdfPCell cell = new PdfPCell(new Paragraph(processBidirectionalText(cellData), font));
-//                            cell.setHorizontalAlignment(Element.ALIGN_CENTER);
-//                            cell.setVerticalAlignment(Element.ALIGN_CENTER);
-//                            cell.setPaddingBottom(5);
-//                            table.addCell(cell);
-//                        }
-//                    }
-//
-//                    document.add(table);
-//
-//                    Paragraph newLine3 = new Paragraph(processBidirectionalText("\n"), font);
-//                    newLine3.setAlignment(Paragraph.ALIGN_RIGHT);
-//                    document.add(newLine3);
-//
-//                    // إضافة المجموع الكلي
-//                    Paragraph total = new Paragraph(processBidirectionalText("المبلغ الاجمالي : 5500"), font);
-//                    total.setAlignment(Paragraph.ALIGN_RIGHT);
-//                    document.add(total);
-//
-//                    // إضافة المجموع الكلي
-//                    Paragraph discount = new Paragraph(processBidirectionalText("مبلغ التخفيض : 000"), font);
-//                    discount.setAlignment(Paragraph.ALIGN_RIGHT);
-//                    document.add(discount);
-//
-//                    // إضافة المجموع الكلي
-//                    Paragraph hasPay = new Paragraph(processBidirectionalText("المبلغ المدفوع : 1500"), font);
-//                    hasPay.setAlignment(Paragraph.ALIGN_RIGHT);
-//                    document.add(hasPay);
-//
-//                    // إضافة المجموع الكلي
-//                    Paragraph rest = new Paragraph(processBidirectionalText("المبلغ المتبقي : 4000"), font);
-//                    rest.setAlignment(Paragraph.ALIGN_RIGHT);
-//                    document.add(rest);
-//
-//                    // إضافة رسالة الشكر
-//                    Paragraph thanks = new Paragraph(processBidirectionalText("وشكرا لكم برنامج SMPOS"),font);
-//                    thanks.setAlignment(Paragraph.ALIGN_CENTER);
-//                    document.add(thanks);
-//
-//                    // إغلاق المستند
-//                    document.close();
-//
-//                    Intent intent;
-//                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-//                        Uri uri = FileProvider.getUriForFile(ReportsActivity.this, getPackageName() + ".provider", file);
-//                        intent = new Intent(Intent.ACTION_VIEW);
-//                        intent.setData(uri);
-//                        intent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-//                        startActivity(intent);
-//                    } else {
-//                        intent = new Intent(Intent.ACTION_VIEW);
-//                        intent.setDataAndType(Uri.parse(file.getPath()), "application/pdf");
-//                        intent = Intent.createChooser(intent, "Open File");
-//                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                        startActivity(intent);
-//                    }
-//
-//                } catch (DocumentException | IOException e) {
-//                    e.printStackTrace();
-//                }
-
             }
         });
 
         button_from.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                //final long[] data = new long[1];
 
                 // Create the MaterialDatePicker with customizations
                 MaterialDatePicker<Long> datePicker = MaterialDatePicker.Builder.datePicker()
@@ -334,7 +132,6 @@ public class ReportsActivity extends AppCompatActivity {
 
                 datePicker.addOnPositiveButtonClickListener(selection -> {
                     // Get the selected date and set it to the TextView
-                    //String formattedDate = datePicker.getHeaderText();
                     timeStare =datePicker.getSelection();
                     Log.d("datePicker", "System.currentTimeMillis() : "+ System.currentTimeMillis());
                     Log.d("datePicker", "timeStare : "+ timeStare);
@@ -369,7 +166,6 @@ public class ReportsActivity extends AppCompatActivity {
 
                 datePicker.addOnPositiveButtonClickListener(selection -> {
                     // Get the selected date and set it to the TextView
-                    //String formattedDate = datePicker.getHeaderText();
                     timeEnd =datePicker.getSelection();
                     //Log.d("TAG", "getExpiryDate : "+ data);
                     Log.d("datePicker", "timeEnd : "+ timeEnd);
@@ -420,83 +216,6 @@ public class ReportsActivity extends AppCompatActivity {
 
 
 
-
-
-//    private void createPdfWithArabicText(String outputPath, AssetManager assetManager) {
-//
-//        try {
-//            // Create a PDF writer
-//            PdfWriter writer = new PdfWriter(outputPath);
-//            writer.setSmartMode(true);
-//            PdfDocument pdfDocument = new PdfDocument(writer);
-//            Document document = new Document(pdfDocument);
-//
-//            // Load the Arabic font from the assets folder
-//            //String fontPath = "NotoNaskhArabic-Regular.ttf"; // Font file name in assets folder
-//            String fontPath = "fonts/NotoNaskhArabic-Bold.ttf"; // Font file name in assets folder
-//            InputStream fontInputStream = assetManager.open(fontPath);
-//            byte[] fontBytes = new byte[fontInputStream.available()];
-//            fontInputStream.read(fontBytes);
-//            fontInputStream.close();
-//
-//            // Create the font using the byte array
-//            PdfFont arabicFont = PdfFontFactory.createFont(fontBytes, PdfEncodings.IDENTITY_H);
-//
-//            // Add Arabic text to the PDF
-//            String arabicText = "مرحبًا بالعالم"; // Arabic text
-//            Paragraph paragraph = new Paragraph(arabicText)
-//                    .setFont(arabicFont) // Set the custom Arabic font
-//                    .setTextAlignment(TextAlignment.RIGHT) // Align text to the right for RTL
-//                    .setFontSize(14);
-//            document.add(paragraph);
-//
-//            // Close the document
-//            document.close();
-//
-//            System.out.println("PDF created at: " + outputPath);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//
-//    }
-//
-//    public void createPdf(String outputPath, AssetManager assetManager) {
-//        try {
-//            // Initialize PdfWriter and PdfDocument
-//            PdfWriter writer = new PdfWriter(outputPath);
-//            PdfDocument pdfDocument = new PdfDocument(writer);
-//            Document document = new Document(pdfDocument);
-//
-//            // Load Arabic font from assets
-//            String fontPath = "fonts/NotoNaskhArabic-Bold.ttf"; // Font file name in assets folder
-//            InputStream fontInputStream = assetManager.open(fontPath);
-//            byte[] fontBytes = new byte[fontInputStream.available()];
-//            fontInputStream.read(fontBytes);
-//            fontInputStream.close();
-//
-//            // Create the font using the byte array
-//            PdfFont arabicFont = PdfFontFactory.createFont(fontBytes, PdfEncodings.IDENTITY_H);
-//
-//            // Add Arabic text to the PDF
-//            String arabicText = "مرحبًا بالعالم"; // Arabic text
-//            Paragraph paragraph = new Paragraph(arabicText)
-//                    .setFont(arabicFont) // Set the custom Arabic font
-//                    .setFontSize(14) // Set font size
-//                    .setBaseDirection(BaseDirection.RIGHT_TO_LEFT) // Ensure RTL direction
-//                    .setTextAlignment(TextAlignment.RIGHT); // Align text to the right for RTL
-//
-//            // Add the paragraph to the document
-//            document.add(paragraph);
-//
-//            // Close the document
-//            document.close();
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//
 
 
     public void loadReport(){

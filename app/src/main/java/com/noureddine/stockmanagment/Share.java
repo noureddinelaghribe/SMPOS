@@ -99,13 +99,10 @@ public class Share {
             connectionsClient.stopDiscovery();
 
             Log.d("NearbyStockManagment", "Endpoint lost: " + endpointId);
-            //Toast.makeText(SettingsActivity.this, "Device lost: " + endpointId, Toast.LENGTH_SHORT).show();
         }
     };
 
-    /**
-     * Callback for managing connection lifecycle events.
-     */
+
     private final ConnectionLifecycleCallback connectionLifecycleCallbackDiscovery = new ConnectionLifecycleCallback() {
         @Override
         public void onConnectionInitiated(String endpointId, com.google.android.gms.nearby.connection.ConnectionInfo connectionInfo) {
@@ -121,10 +118,6 @@ public class Share {
 
                 updateTextLoading("تم الاتصال ");
                 updateTextLoading("يتم ارسال البيانات الان الرجاء الانتضار...");
-
-                //Toast.makeText(SettingsActivity.this, "Connected to device", Toast.LENGTH_SHORT).show();
-
-//                File filePath = new File("/storage/emulated/0/Android/data/com.example.stockmanagment/files/SMDatabase_Backups/SMDatabase_backup.db");
 
                 // Define the target directory and file
                 File targetDir = new File(context.getExternalFilesDir(null), "SMDatabase_Backups");
@@ -149,11 +142,9 @@ public class Share {
         @Override
         public void onDisconnected(String endpointId) {
             Log.d("NearbyStockManagment", "Disconnected from endpoint: " + endpointId);
-            //Toast.makeText(SettingsActivity.this, "Disconnected from device", Toast.LENGTH_SHORT).show();
             Toast.makeText(context, "تم الغاء الاتصال ", Toast.LENGTH_SHORT).show();
             hideLoading();
             connectionsClient.stopDiscovery();
-//            connectionsClient.stopAllEndpoints();
 
         }
     };

@@ -88,24 +88,6 @@ public class AdapterCustomerSupplier extends RecyclerView.Adapter<AdapterCustome
                     item.setVisible(true);
                 }
 
-
-//                if (!customersList.isEmpty()){
-//                    if (!customersList.get(p).getPhoneNumber().isEmpty()){
-//                        phoneNumber=customersList.get(p).getPhoneNumber();
-//                        Menu menu = popup.getMenu();
-//                        MenuItem item = menu.findItem(R.id.call);
-//                        item.setVisible(true);
-//                    }
-//                }
-//                if (!supplersList.isEmpty()){
-//                    if (!supplersList.get(p).getPhoneNumber().isEmpty()){
-//                        phoneNumber= supplersList.get(p).getPhoneNumber();
-//                        Menu menu = popup.getMenu();
-//                        MenuItem item = menu.findItem(R.id.call);
-//                        item.setVisible(true);
-//                    }
-//                }
-
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {

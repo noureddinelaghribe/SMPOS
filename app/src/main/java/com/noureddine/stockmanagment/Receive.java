@@ -2,7 +2,6 @@ package com.noureddine.stockmanagment;
 
 import static com.noureddine.stockmanagment.Opiration.hideLoading;
 import static com.noureddine.stockmanagment.Opiration.updateTextLoading;
-import static com.google.common.reflect.Reflection.getPackageName;
 
 
 import android.content.Context;

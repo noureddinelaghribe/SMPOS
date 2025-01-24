@@ -172,6 +172,7 @@ public class Opiration {
                                     phoneNumber.getText().toString().isEmpty() ? "" : customer.getPhoneNumber(),
                                     note.getText().toString().isEmpty() ? "" :customer.getNote(),customer.getDateInsert(),
                                     debet.getText().toString().equals("0") || debet.getText().toString().equals("") ? 0: Integer.parseInt(debet.getText().toString())
+//                                    debet.getText().toString().isEmpty() ? 0 : Integer.parseInt(debet.getText().toString())
                             ));
                             smViewModel.inserttransaction(new Transactions(customer.getId(),0,0,0,0,null,
                                     "updateCustomer",System.currentTimeMillis()));
@@ -183,6 +184,7 @@ public class Opiration {
                                     phoneNumber.getText().toString().isEmpty() ? "" : supplier.getPhoneNumber(),
                                     note.getText().toString().isEmpty() ? "" : supplier.getNote(),supplier.getDateInsert(),
                                     debet.getText().toString().equals("0") || debet.getText().toString().equals("") ? 0: Integer.parseInt(debet.getText().toString())
+//                                    debet.getText().toString().isEmpty() ? 0 : Integer.parseInt(debet.getText().toString())
                             ));
                             smViewModel.inserttransaction(new Transactions(0,supplier.getId(),0,0,0,null,
                                     "updateSupplier",System.currentTimeMillis()));
@@ -204,8 +206,13 @@ public class Opiration {
 
                         if (type.equals("customers")){
                             smViewModel.insertCustomer(new Customer(
-                                    name.getText().toString(),address.getText().toString(),
-                                    phoneNumber.getText().toString(),note.getText().toString(),System.currentTimeMillis(),false,0
+                                    name.getText().toString(),
+                                    address.getText().toString(),
+                                    phoneNumber.getText().toString(),
+                                    note.getText().toString(),
+                                    System.currentTimeMillis(),
+                                    false,
+                                    debet.getText().toString().isEmpty() ? 0 : Integer.parseInt(debet.getText().toString())
                             )).observe((LifecycleOwner) context, new Observer<Long>() {
                                 @Override
                                 public void onChanged(Long aLong) {
@@ -217,9 +224,13 @@ public class Opiration {
 
                         }else {
                             smViewModel.insertSupplier(new Supplier(
-                                    name.getText().toString(),address.getText().toString(),
-                                    phoneNumber.getText().toString(),note.getText().toString(),
-                                    System.currentTimeMillis(),false,0
+                                    name.getText().toString(),
+                                    address.getText().toString(),
+                                    phoneNumber.getText().toString(),
+                                    note.getText().toString(),
+                                    System.currentTimeMillis(),
+                                    false,
+                                    debet.getText().toString().isEmpty() ? 0 : Integer.parseInt(debet.getText().toString())
                             )).observe((LifecycleOwner) context, new Observer<Long>() {
                                 @Override
                                 public void onChanged(Long aLong) {
@@ -258,7 +269,6 @@ public class Opiration {
         final long[] data = new long[1];
         data[0] = 0;
         final int CAMERA_PERMISSION_REQUEST_CODE = 1;
-        //final boolean[] result = {false};
 
         ImageView catigory = dialogView.findViewById(R.id.imageView_Catigory);
         imgProduct = dialogView.findViewById(R.id.imageView_product);
@@ -294,17 +304,10 @@ public class Opiration {
             description.setText(product.getInfo());
             pBuy.setText(String.valueOf(product.getPriceBuy()));
             pSell.setText(String.valueOf(product.getPriceSell()));
-            //quantity.setText(String.valueOf(product.getQuantity()));
             quantity.setHint("اضف على الكمية المتوفرة : "+product.getQuantity());
             limit.setText(String.valueOf(product.getLimit()));
             data[0] = product.getExpiryDate();
             pickDate.setText(data[0]>0 ? longToDate(data[0]) : "--/--/----");
-
-//            if ( !product.getImagePath().is Empty() || !product.getImagePath().equals(null)){
-//                imgProduct.setImageURI(Uri.parse(product.getImagePath()));
-//            }else {
-//                imgProduct.setImageResource(R.drawable.add_image);
-//            }
 
             if (product.getImagePath().isEmpty() && bitmapImgProduct == null) {
                 imgProduct.setImageResource(R.drawable.add_image);
@@ -429,8 +432,6 @@ public class Opiration {
                                 quantity.getText().toString().isEmpty() ? product.getQuantity() : Integer.parseInt(quantity.getText().toString())+product.getQuantity(),
                                 Integer.parseInt(limit.getText().toString()),
                                 data[0],
-                                //editTextbarcode.getText().toString().isEmpty() ? product.getImagePath() : String.valueOf(saveBitmapToUri(context,bitmapImgProduct,editTextbarcode.getText().toString()))
-                                //bitmapImgProduct == null ? "" : String.valueOf(saveBitmapToUri(context,bitmapImgProduct,editTextbarcode.getText().toString()))
                                 product.getImagePath().isEmpty() && bitmapImgProduct == null ? "" : bitmapImgProduct != null ? String.valueOf(saveBitmapToUri(context,bitmapImgProduct,editTextbarcode.getText().toString())) : product.getImagePath(),
                                 System.currentTimeMillis()
                         ));
@@ -467,11 +468,7 @@ public class Opiration {
                                         if(quantity.getText().toString().isEmpty()){
                                             quantity.setError("الرجاء ادخال الكمية");
                                         }else{
-//                                            if(data[0] == 0){
-//                                                Toast.makeText(context, "الرجاء ادخال تاريخ انتهاء الصلاحية", Toast.LENGTH_SHORT).show();
-//                                            }else{
                                             Toast.makeText(context, "الرجاء ادخال المعلومات المطلوبة", Toast.LENGTH_SHORT).show();
-//                                            }
                                         }
                                     }
                                 }
@@ -576,80 +573,12 @@ public class Opiration {
 
                 if (checkedId == radioButton1.getId()){
                     typePayment[0] ="debt";
-                    //hasPay.setText("0");
                 }else if (checkedId == radioButton2.getId()){
                     typePayment[0] ="cash";
-                    //hasPay.setText(textViewTotal.getText().toString());
                 }
 
             }
         });
-
-
-
-//        hasPay.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence bhasPay, int hstart, int hcount, int hafter) {
-//
-//                Handler handler = new Handler();
-//                Runnable runnable;
-//                runnable = () -> {
-//                    if (hcount>=1){
-//                        int hasPayPrice = Integer.parseInt(bhasPay.toString());
-//                        textViewTotal.setText(String.valueOf(Integer.parseInt(textViewTotal.getText().toString())+hasPayPrice));
-//                    }
-//                };
-//                handler.postDelayed(runnable, 1000);
-//
-//            }
-//            @Override
-//            public void onTextChanged(CharSequence hasPay, int start, int before, int count) {
-//
-//                Handler handler = new Handler();
-//                Runnable runnable;
-//                runnable = () -> {
-//                    if (hasPay != null && !hasPay.equals("") && hasPay.length()>0){
-//                        int hasPayPrice = Integer.parseInt(hasPay.toString());
-//                        textViewTotal.setText(String.valueOf(Integer.parseInt(textViewTotal.getText().toString())-hasPayPrice));
-//                    }
-//                };
-//                handler.postDelayed(runnable, 1000);
-//
-//            }
-//            @Override
-//            public void afterTextChanged(Editable s) {}
-//        });
-//
-//        discount.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence sdiscount, int dstart, int dcount, int dafter) {
-//                Handler handler = new Handler();
-//                Runnable runnable;
-//                runnable = () -> {
-//                    if (dcount>=1){
-//                        int discountPrice = Integer.parseInt(sdiscount.toString());
-//                        textViewTotal.setText(String.valueOf(Integer.parseInt(textViewTotal.getText().toString())+discountPrice));
-//                    }
-//                };
-//                handler.postDelayed(runnable, 1000);
-//
-//            }
-//            @Override
-//            public void onTextChanged(CharSequence sdiscount, int start, int before, int count) {
-//                Handler handler = new Handler();
-//                Runnable runnable;
-//                runnable = () -> {
-//                    if (sdiscount != null && !sdiscount.equals("") && sdiscount.length()>0){
-//                        int discountPrice = Integer.parseInt(sdiscount.toString());
-//                        textViewTotal.setText(String.valueOf(Integer.parseInt(textViewTotal.getText().toString())-discountPrice));
-//                    }
-//                };
-//                handler.postDelayed(runnable, 1000);
-//
-//            }
-//            @Override
-//            public void afterTextChanged(Editable s) {}
-//        });
 
 
         save.setOnClickListener(new View.OnClickListener() {
@@ -1038,12 +967,6 @@ public class Opiration {
             restAmount = String.valueOf(buy.getRestAmount());
         }
         String date = longToDateTime(System.currentTimeMillis());
-
-//        File path = new File(context.getExternalFilesDir(null), REPORTS_PATH);
-//
-//        if (!path.exists()) {
-//            path.mkdir(); // Create the directory and its parent directories if they don't exist
-//        }
 
         // Define the directory and file name
         File path = new File(Environment.getExternalStorageDirectory(), "SMPOS/SMReports");

@@ -2,7 +2,10 @@ package com.noureddine.stockmanagment;
 
 import static com.noureddine.stockmanagment.Opiration.longToDate;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,7 +29,9 @@ public class NotificationActivity extends AppCompatActivity {
     AdapterNotification adapter;
     List<String> listOutStock = new ArrayList<>();
     List<String> listexpiryDate = new ArrayList<>();
+    TextView textView;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +44,7 @@ public class NotificationActivity extends AppCompatActivity {
         });
 
         recyclerView = findViewById(R.id.recyclerView);
+        textView = findViewById(R.id.textView11);
 
         adapter = new AdapterNotification();
 
@@ -57,22 +63,40 @@ public class NotificationActivity extends AppCompatActivity {
         smViewModel.getProductsExpiryDate(starDate,sevenDays).observe(NotificationActivity.this, new Observer<List<Product>>() {
             @Override
             public void onChanged(List<Product> productList) {
-                for (Product p : productList){
-                    listexpiryDate.add("المنتج : "+p.getName()+" على وشك انتهاء صلاحيته : "+longToDate(p.getExpiryDate()));
+
+                if (productList.isEmpty()){
+                    recyclerView.setVisibility(View.GONE);
+                    textView.setVisibility(View.VISIBLE);
+                }else{
+                    recyclerView.setVisibility(View.VISIBLE);
+                    textView.setVisibility(View.GONE);
+                    for (Product p : productList){
+                        listexpiryDate.add("المنتج : "+p.getName()+" على وشك انتهاء صلاحيته : "+longToDate(p.getExpiryDate()));
+                    }
+                    adapter.updateNotification(listexpiryDate);
+                    recyclerView.setAdapter(adapter);
                 }
-                adapter.updateNotification(listexpiryDate);
-                recyclerView.setAdapter(adapter);
+
             }
         });
 
         smViewModel.getProductsOutStock().observe(this, new Observer<List<Product>>() {
             @Override
             public void onChanged(List<Product> productList) {
-                for (Product p : productList){
-                    listOutStock.add("المنتج : "+p.getName()+" على وشك النفاد باقي : "+p.getQuantity());
+
+                if (productList.isEmpty()){
+                    recyclerView.setVisibility(View.GONE);
+                    textView.setVisibility(View.VISIBLE);
+                }else{
+                    recyclerView.setVisibility(View.VISIBLE);
+                    textView.setVisibility(View.GONE);
+                    for (Product p : productList){
+                        listOutStock.add("المنتج : "+p.getName()+" على وشك النفاد باقي : "+p.getQuantity());
+                    }
+                    adapter.updateNotification(listOutStock);
+                    recyclerView.setAdapter(adapter);
                 }
-                adapter.updateNotification(listOutStock);
-                recyclerView.setAdapter(adapter);
+
             }
         });
 

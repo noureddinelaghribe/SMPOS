@@ -81,71 +81,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-//        long starDate = System.currentTimeMillis()-86400000;
-//        long sevenDays = System.currentTimeMillis()+86400000*7;
-//
+
         sharedPreferences = getSharedPreferences(MYKEY,0);
-//
-//        if (!sharedPreferences.contains("starTrial")){
-//
-//            Log.d("sharedPreferences", "onCreate: key 1" );
-//
-//            SharedPreferences.Editor editor = sharedPreferences.edit();
-//            editor.putLong("starTrial",System.currentTimeMillis());
-//            editor.putLong("lastLog",System.currentTimeMillis());
-//            editor.putLong("endTrial",sevenDays);
-//            editor.putBoolean("trial",true);
-//            editor.putBoolean("active",false);
-//            editor.putString("key",generateLicenseKey());
-//            editor.apply();
-//        }else {
-//            if ( !sharedPreferences.getBoolean("active",false) && sharedPreferences.getBoolean("trial",true)) {
-//
-//                Log.d("sharedPreferences", "onCreate: key 2" );
-//
-//                if (sharedPreferences.getLong("lastLog",0) >= sharedPreferences.getLong("starTrial",0)
-//                        && sharedPreferences.getLong("lastLog",0) < System.currentTimeMillis()
-//                        && sharedPreferences.getLong("lastLog",0) <= sharedPreferences.getLong("endTrial",0)){
-//
-//                    Log.d("sharedPreferences", "onCreate: key 3" );
-//
-//                    SharedPreferences.Editor editor = sharedPreferences.edit();
-//                    editor.putLong("lastLog",System.currentTimeMillis());
-//                    editor.apply();
-//                }else {
-//
-//                    Log.d("sharedPreferences", "onCreate: key 4" );
-//
-//                    SharedPreferences.Editor editor = sharedPreferences.edit();
-//                    editor.putBoolean("trial",false);
-//                    editor.apply();
-//
-//                    Intent intent = new Intent(MainActivity.this,ActiveLicenseActivity.class);
-//                    startActivity(intent);
-//                    finish();
-//                }
-//            }else{
-//
-//                Log.d("sharedPreferences", "onCreate: key 5" );
-//
-//                Intent intent = new Intent(MainActivity.this,ActiveLicenseActivity.class);
-//                startActivity(intent);
-//                finish();
-//
-//            }
-//        }
-
-
-//
-//        Log.d("sharedPreferences", "onCreate: key "+ sharedPreferences.getString("key",null));
-//        Log.d("sharedPreferences", "onCreate: active "+ sharedPreferences.getBoolean("active",true));
-//        Log.d("sharedPreferences", "onCreate: if 1  "+ (sharedPreferences.getLong("lastLog",0) >= sharedPreferences.getLong("starTrial",0)));
-//        Log.d("sharedPreferences", "onCreate: if 2  "+ (sharedPreferences.getLong("lastLog",0) < System.currentTimeMillis()));
-//        Log.d("sharedPreferences", "onCreate: if 3  "+ (sharedPreferences.getLong("lastLog",0) <= sharedPreferences.getLong("endTrial",0)));
-//        Log.d("sharedPreferences", "onCreate: starTrial "+ sharedPreferences.getLong("starTrial",0) +" "+longToDate(sharedPreferences.getLong("starTrial",0)));
-//        Log.d("sharedPreferences", "onCreate: endTrial "+ sharedPreferences.getLong("endTrial",0) +" "+longToDate(sharedPreferences.getLong("endTrial",0)));
-//        Log.d("sharedPreferences", "onCreate: lastLog "+ sharedPreferences.getLong("lastLog",0) +" "+longToDate(sharedPreferences.getLong("lastLog",0)));
-//        Log.d("sharedPreferences", "onCreate: now "+ System.currentTimeMillis() +" "+longToDate(System.currentTimeMillis()));
 
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
@@ -263,111 +200,6 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                Log.d("product", " "+smViewModel.getProductByIdp("2025"));
-//            }
-//        }).start();
-//
-//        smViewModel.getAllSuppliers().observe(MainActivity.this, new Observer<List<Supplier>>() {
-//            @Override
-//            public void onChanged(List<Supplier> suppliers) {
-//                for (Supplier s : suppliers){
-//                    Log.d("Supplier", "Supplier: "+s.getId()+" "+s.getName());
-//                }
-//            }
-//        });
-//
-//        smViewModel.getAllCustomers().observe(MainActivity.this, new Observer<List<Customer>>() {
-//            @Override
-//            public void onChanged(List<Customer> customers) {
-//                for (Customer c : customers){
-//                    Log.d("customers", "customers: "+c.getId()+" "+c.getName());
-//                }
-//            }
-//        });
-//
-//        smViewModel.getAllProduct().observe(MainActivity.this, new Observer<List<Product>>() {
-//            @Override
-//            public void onChanged(List<Product> products) {
-//                for (Product p : products){
-//                    //String info, int quantity, int limit, long expiryDate, String imagePath, Double priceBuy, Double priceSell, String idp, String name
-//                    Log.d("products", "Product : "+
-//                            "id "+p.getId()+" "+
-//                            p.getName()+" "+
-//                            "idp "+p.getIdp()+" "+
-//                            p.getPriceSell()+" "+
-//                            p.getPriceBuy()+" "+
-//                            p.getExpiryDate()+" "+
-//                            p.getLimit()+" "+
-//                            p.getQuantity()+" "+
-//                            p.getInfo()+" "+
-//                            p.getImagePath()
-//                    );
-//
-//                }
-//            }
-//        });
-//
-//        smViewModel.getAllSelles().observe(MainActivity.this, new Observer<List<Sell>>() {
-//            @Override
-//            public void onChanged(List<Sell> sells) {
-//                for (Sell s : sells){
-//                    Log.d("TAG", "onChanged: "+s.getId()+" "+s.getpaymentAmount());
-//                }
-//            }
-//        });
-//
-//        smViewModel.getAllBuyers().observe(MainActivity.this, new Observer<List<Buy>>() {
-//            @Override
-//            public void onChanged(List<Buy> buys) {
-//                for (Buy b : buys){
-//                    Log.d("TAG", "All Buyers : "+b.getId()+" "+b.getTypePayment()+" "+b.getTotalAmount());
-//                }
-//            }
-//        });
-//
-        // int product_id, int custmer_id, int supplier_id, String type, int quantity, long timestamp
-//        smViewModel.inserttransaction(new Transactions(1,1,1,"try-1",0,10));
-//        smViewModel.inserttransaction(new Transactions(2,2,2,"try-2",0,15));
-//        smViewModel.inserttransaction(new Transactions(3,3,3,"try-3",0,85));
-//        smViewModel.inserttransaction(new Transactions(4,4,4,"try-4",0,44));
-//        smViewModel.inserttransaction(new Transactions(5,5,5,"try-5",0,100000960));
-//        smViewModel.inserttransaction(new Transactions(6,6,6,"try-6",0,100000320));
-//        smViewModel.inserttransaction(new Transactions(7,7,7,"try-7",0,100000520));
-//        smViewModel.inserttransaction(new Transactions(8,8,8,"try-8",0,100000450));
-
-
-
-//        smViewModel.getAllTransactions().observe(MainActivity.this, new Observer<List<Transactions>>() {
-//            @Override
-//            public void onChanged(List<Transactions> transactions) {
-//                for (Transactions t : transactions){
-//                    Log.d("Transactions", "All transactions : "+t.getId()+" "+t.getType()+" "+t.getTimestamp());
-//                }
-//            }
-//        });
-//
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                Log.d("Transactions", "onCreate: smViewModel.getCounttransactions() "+smViewModel.getCounttransactions());
-//            }
-//        }).start();
-
-
-//        smViewModel.timeTransactions(10,85).observe(MainActivity.this, new Observer<List<Transactions>>() {
-//            @Override
-//            public void onChanged(List<Transactions> transactions) {
-//                for (Transactions t : transactions){
-//                    Log.d("Transactions", "spicific transactions : "+t.getId()+" "+t.getType());
-//                }
-//            }
-//        });
-
-
         sell.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -452,23 +284,6 @@ public class MainActivity extends AppCompatActivity {
         info.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-//                new Thread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//
-////                        for (int i = 1; i <=10000;i++){
-////
-////                            smViewModel.insertProduct(new Product("info : "+i,100,10,100000,"",10.00,12.00,i+"00","name P"+i,100000,false));
-////                            smViewModel.insertCustomer(new Customer("C"+i,"","","",100000,false));
-////                            smViewModel.insertSupplier(new Supplier("S"+i,"","","",100000,false));
-////
-////                            Log.d("finished", "onClick: "+i);
-////
-////                        }
-//
-//                    }
-//                }).start();
 
                 Intent intent = new Intent(MainActivity.this, InfoActivity.class);
                 startActivity(intent);

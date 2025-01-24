@@ -23,9 +23,7 @@ public class DatabaseRestoreHelper {
     public boolean restoreDatabase() {
         try {
 
-            //File backupFolder = new File(context.getExternalFilesDir(null), BACKUP_FOLDER_NAME);
             File backupFolder = new File(Environment.getExternalStorageDirectory(), "SMPOS/"+BACKUP_FOLDER_NAME);
-            //File backupFolder = new File("/storage/emulated/0/SMDatabase_Backups");
             if (!backupFolder.exists()) {
                 Log.e(TAG, "Restore failed file is not exists "+BACKUP_FOLDER_NAME);
             }

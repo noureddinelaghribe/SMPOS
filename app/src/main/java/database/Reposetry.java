@@ -256,16 +256,6 @@ public class Reposetry {
 
 
 
-//    public LiveData<Product> getProductById(int id) {
-//        MutableLiveData<Product> liveData = new MutableLiveData<>();
-//        SMDatabase.executorService.execute(() -> {
-//            Product product = productDao.getProductById(id).getValue();
-//            liveData.postValue(product);
-//        });
-//        return liveData;
-//    }
-
-
 
 
     public LiveData<List<Sell>> getAllSelles(){
@@ -323,9 +313,6 @@ public class Reposetry {
         return insertedIdLiveData;
     }
 
-//    public int getCountBuyers(){
-//        return buyDao.getCountBuyers();
-//    }
 
     public LiveData<List<Buy>> getCountBuyersCash(long timeStare,long timeEnd){
         return buyDao.getCountBuyersCash( timeStare, timeEnd);

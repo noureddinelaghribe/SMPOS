@@ -57,7 +57,7 @@ public class AdapterProductCart extends RecyclerView.Adapter<AdapterProductCart.
         final int[] qty = {1};
 
         Product product = productList.get(p);
-        holder.name.setText(product.getName());
+        holder.name.setText(lengthText(product.getName(),10));
         holder.quantity.setText(String.valueOf(qty[0]));
         holder.idp.setText(product.getIdp());
 
@@ -69,14 +69,6 @@ public class AdapterProductCart extends RecyclerView.Adapter<AdapterProductCart.
             holder.price.setText(String.valueOf(product.getPriceBuy()));
             holder.total.setText(String.valueOf(product.getPriceBuy()));
         }
-
-//        if (product.getImagePath().equals("") || product.getImagePath().equals(null)){
-//            File file =new File(product.getImagePath());
-//            if (file.exists()){
-//                Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
-//                holder.img.setImageBitmap(bitmap);
-//            }
-//        }
 
         File pathImgProduct = new File(product.getImagePath());
         if (product.getImagePath().equals("") || product.getImagePath().equals(null)){
