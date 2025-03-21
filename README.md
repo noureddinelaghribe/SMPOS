@@ -4,23 +4,23 @@ Welcome to **SMPOS**, a powerful stock management and point of sale application 
 
 ## Screenshots
 
-Here are some screenshots of the Sweet Store app:
+Here are some screenshots of the SMPOS app:
 
 | Screenshot 1 | Screenshot 2 | Screenshot 3 |
 |--------------|--------------|--------------|
-| ![Screenshot 1](https://raw.githubusercontent.com/noureddinne21/Sweets-Store/refs/heads/main/Screenshot_2024-10-30-16-39-13-403_com.nouroeddinne.sweetsstore.jpg) | ![Screenshot 2](https://raw.githubusercontent.com/noureddinne21/Sweets-Store/refs/heads/main/Screenshot_2024-10-30-16-39-21-801_com.nouroeddinne.sweetsstore.jpg) | ![Screenshot 3](https://raw.githubusercontent.com/noureddinne21/Sweets-Store/refs/heads/main/Screenshot_2024-10-30-16-39-26-604_com.nouroeddinne.sweetsstore.jpg) |
+| ![Screenshot 1](https://raw.githubusercontent.com/noureddinne21/SMPOS/refs/heads/master/smpos/photo_2025-03-21_02-28-22%20(3).jpg) | ![Screenshot 2](https://raw.githubusercontent.com/noureddinne21/SMPOS/refs/heads/master/smpos/photo_2025-03-21_02-28-20%20(2).jpg) | ![Screenshot 3](https://raw.githubusercontent.com/noureddinne21/SMPOS/refs/heads/master/smpos/photo_2025-03-21_02-28-22.jpg) |
 
 | Screenshot 4 | Screenshot 5 | Screenshot 6 |
 |--------------|--------------|--------------|
-| ![Screenshot 4](https://raw.githubusercontent.com/noureddinne21/Sweets-Store/refs/heads/main/Screenshot_2024-10-30-16-40-18-839_com.nouroeddinne.sweetsstore.jpg) | ![Screenshot 5](https://raw.githubusercontent.com/noureddinne21/Sweets-Store/refs/heads/main/Screenshot_2024-10-30-16-40-24-546_com.nouroeddinne.sweetsstore.jpg) | ![Screenshot 6](https://raw.githubusercontent.com/noureddinne21/Sweets-Store/refs/heads/main/Screenshot_2024-10-30-16-40-26-426_com.nouroeddinne.sweetsstore.jpg) |
+| ![Screenshot 4](https://raw.githubusercontent.com/noureddinne21/SMPOS/refs/heads/master/smpos/photo_2025-03-21_02-28-19%20(3).jpg) | ![Screenshot 5](https://raw.githubusercontent.com/noureddinne21/SMPOS/refs/heads/master/smpos/photo_2025-03-21_02-28-21%20(3).jpg) | ![Screenshot 6](https://raw.githubusercontent.com/noureddinne21/SMPOS/refs/heads/master/smpos/photo_2025-03-21_02-28-21%20(2).jpg) |
 
 | Screenshot 7 | Screenshot 8 | Screenshot 9 |
 |--------------|--------------|--------------|
-| ![Screenshot 7](https://raw.githubusercontent.com/noureddinne21/Sweets-Store/refs/heads/main/Screenshot_2024-10-30-16-40-28-594_com.nouroeddinne.sweetsstore.jpg) | ![Screenshot 8](https://raw.githubusercontent.com/noureddinne21/Sweets-Store/refs/heads/main/Screenshot_2024-10-30-16-40-33-500_com.nouroeddinne.sweetsstore.jpg) | ![Screenshot 9](https://raw.githubusercontent.com/noureddinne21/Sweets-Store/refs/heads/main/Screenshot_2024-10-30-16-40-58-206_com.nouroeddinne.sweetsstore.jpg) |
+| ![Screenshot 7](https://raw.githubusercontent.com/noureddinne21/SMPOS/refs/heads/master/smpos/photo_2025-03-21_02-28-21.jpg) | ![Screenshot 8](https://raw.githubusercontent.com/noureddinne21/SMPOS/refs/heads/master/smpos/photo_2025-03-21_02-28-22%20(2).jpg) | ![Screenshot 9](https://raw.githubusercontent.com/noureddinne21/SMPOS/refs/heads/master/smpos/photo_2025-03-21_02-28-20.jpg) |
 
 | Screenshot 10 | Screenshot 11 | Screenshot 12 |
 |---------------|---------------|---------------|
-| ![Screenshot 10](https://raw.githubusercontent.com/noureddinne21/Sweets-Store/refs/heads/main/Screenshot_2024-10-30-16-41-03-387_com.nouroeddinne.sweetsstore.jpg) | ![Screenshot 11](https://raw.githubusercontent.com/noureddinne21/Sweets-Store/refs/heads/main/Screenshot_2024-10-30-16-41-07-604_com.nouroeddinne.sweetsstore.jpg) | ![Screenshot 12](https://raw.githubusercontent.com/noureddinne21/Sweets-Store/refs/heads/main/Screenshot_2024-10-30-16-41-22-647_com.nouroeddinne.sweetsstore.jpg) |
+| ![Screenshot 10](https://raw.githubusercontent.com/noureddinne21/SMPOS/refs/heads/master/smpos/photo_2025-03-21_02-28-19%20(2).jpg) | ![Screenshot 11](https://raw.githubusercontent.com/noureddinne21/SMPOS/refs/heads/master/smpos/photo_2025-03-21_02-28-19.jpg) | ![Screenshot 12](https://raw.githubusercontent.com/noureddinne21/SMPOS/refs/heads/master/smpos/photo_2025-03-21_02-28-18.jpg) |
 
 
 ## Features
@@ -101,10 +101,6 @@ SMPOS offers premium features available through in-app purchases:
 - Enhanced data analysis tools
 - Priority support
 
-## Privacy Policy
-
-*[Add link to your privacy policy]*
-
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
@@ -112,4 +108,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Support
 
 For technical support or feature requests, please contact:
-*[Add support email/contact information]*
+*[noureddinne.office@gmail.com]*
