@@ -2,6 +2,14 @@
 
 Welcome to **SMPOS**, a powerful stock management and point of sale application designed for businesses of all sizes. This all-in-one solution provides inventory management, supplier and customer tracking, sales processing, and comprehensive reporting capabilities, all in a user-friendly Android interface.
 
+## Download
+
+<p align="center">
+    <a href="https://github.com/noureddinelaghribe/SMPOS/raw/refs/heads/master/SMPOS.apk">
+        <img src="https://raw.githubusercontent.com/noureddinelaghribe/WriteFlow/refs/heads/main/download_apk.png" alt="Get it on Google Play" height="80">
+    </a>
+</p>
+
 ## Screenshots
 
 Here are some screenshots of the SMPOS app:
